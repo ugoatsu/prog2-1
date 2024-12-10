@@ -84,16 +84,23 @@ for k in range(n_epochs):
     loss_train_history.append(loss_train)
     print(f'train loss: {loss_train:.3f} ({time_end-time_start}s)', end=', ')
 
+    time_start = time.time()
     loss_test = models.test(model, dataloader_test, loss_fn)
+    time_end = time.time()
     loss_test_history.append(loss_test)
-    print(f'test loss: {loss_test:.3f}', end=', ')
+    print(f'test loss: {loss_test:.3f} ({time_end-time_start}s)', end=', ')
 
+    time_start = time.time()
     acc_train = models.test_accuracy(model, dataloader_train)
+    time_end = time.time()
     acc_train_history.append(acc_train)
-    print(f'test accuracy: {acc_train*100:.3f}%', end=', ')
+    print(f'test accuracy: {acc_train*100:.3f}% ({time_end-time_start}s)', end=', ')
+
+    time_start = time.time()
     acc_test = models.test_accuracy(model, dataloader_test)
+    time_end = time.time()
     acc_test_history.append(acc_test)
-    print(f'test accuracy: {acc_test*100:.3f}%')
+    print(f'test accuracy: {acc_test*100:.3f}% ({time_end-time_start}s)')
 
 
 plt.plot(acc_train_history, label='train')

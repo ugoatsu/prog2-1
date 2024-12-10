@@ -82,7 +82,7 @@ for k in range(n_epochs):
     #学習回数を増やすと、時間はかかるがより正確になる(ループにしたのでコメントアウト)
     #models.train(model, dataloader_test, loss_fn, optimizer)
     loss_train_history.append(loss_train)
-    print(f'train loss: {loss_train:.3f} ({time_end-time_start}s)')
+    print(f'train loss: {loss_train:.3f} ({time_end-time_start}s)', end=', ')
 
     loss_test = models.test(model, dataloader_test, loss_fn)
     loss_test_history.append(loss_test)

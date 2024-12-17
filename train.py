@@ -19,7 +19,7 @@ ds_transform = transforms.Compose([
 #データセットの読み込み
 ds_train = datasets.FashionMNIST(
     root='data',
-    train=True,
+    train=True, #訓練用を指定
     download = True,
     transform=ds_transform
 )
@@ -32,24 +32,24 @@ ds_test = datasets.FashionMNIST(
 )
 
 #ミニパッチのデータローダー
-bs = 64
+batch_size = 64
 dataloader_train = torch.utils.data.DataLoader(
     ds_train,
-    batch_size=bs,
+    batch_size=batch_size,
     shuffle=True
 )
-
 dataloader_test = torch.utils.data.DataLoader(
     ds_test,
-    batch_size=bs,
-    shuffle=False
+    batch_size=batch_size,
+    #shuffle=False
 )
-
+#バッチを取り出す実験
+#この後の処理では不要なので、確認したら削除してよい
 for image_batch, label_batch in dataloader_test:
     print(image_batch.shape)
-    print(label_batch)
-    break    
-
+    print(label_batch.shape)
+    break #1つ目で終了   
+#k
 #モデルのインスタンスを作成
 model = models.MyModel()
 

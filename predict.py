@@ -1,3 +1,4 @@
+"""学習されていないネットワークを使って予測をする"""
 import matplotlib.pyplot as plt
 import torch
 from torchvision import datasets

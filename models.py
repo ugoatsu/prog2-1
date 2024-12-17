@@ -52,7 +52,7 @@ def train(model, dataloader, loss_fn, optimizer, device='cpu'):
         #最適化
         optimizer.zero_grad()
         loss.backward() #誤差逆伝播法
-        optimizer.stop() #パラメータをちょっと動かす
+        optimizer.step() #パラメータをちょっと動かす
 
     return loss.item()
     
@@ -64,7 +64,7 @@ def test(model, dataloader, loss_fn, device='cpu'):
     for image_batch, label_batch in dataloader:
         image_batch.to(device)
         label_batch.to(device)
-        
+
         with torch.no_grad():
             logits_batch = model(image_batch)
 

@@ -10,12 +10,12 @@ ds_train = datasets.FashionMNIST(
     download=True,
 )
 
-print(f'numbers of datasets:{len(ds_train)}')
+print(f'dataset size:{len(ds_train)}')
 
-image, target = ds_train[0]
+image, target = ds_train[1]
 print(type(image), target)
 
-plt.imshow(image, cmap='gray_r')
+plt.imshow(image, cmap='gray_r', vmin=0, vmax=255)
 plt.title(target)
 plt.show()
 
